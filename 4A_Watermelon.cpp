@@ -13,5 +13,6 @@ int main() {
 	else
 	cout<<"YES";
 	cout<<1;
+	sadasd
 	return 0;
 }
