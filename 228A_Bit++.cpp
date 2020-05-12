@@ -40,7 +40,27 @@ vi g[N];
 int a[N];
 
 int main() {
-    int n;
+    int t, i, j, k, p, q, r, x, y, u, v, n, m;
+    cin>>n;
+    vector<string> ar(n);
+    cin.ignore();
+    fo(i,n)
+    {
+        cin>>ar[i];
+    }
+    m=0;
+    fo(i,n)
+    {
+      if(ar[i]=="X++")
+      m++;
+      if(ar[i]=="++X")
+      ++m;
+      if(ar[i]=="X--")
+      m--;
+      if(ar[i]=="--X")
+      m--;
+    }
+    cout<<m<<endl;
 
     return 0;
 }

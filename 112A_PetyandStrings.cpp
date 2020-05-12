@@ -40,8 +40,11 @@ vi g[N];
 int a[N];
 
 int main() {
-    int n;
-
+    string x,y;
+    cin>>x>>y;
+    transform(x.begin(), x.end(), x.begin(), ::toupper); 
+    transform(y.begin(), y.end(), y.begin(), ::toupper); 
+    cout<<x.compare(y);
     return 0;
 }
 
