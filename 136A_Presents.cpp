@@ -41,7 +41,17 @@ int a[N];
 
 int main() {
     int n,i,j;
-
+    cin>>n;
+    vi ar(n);
+    fo(i,n)
+    cin>>ar[i];
+    vi ar2(n,0);
+    fo(i,n)
+    {
+        ar2[ar[i]-1]=i+1;
+    }
+    fo(i,n)
+    cout<<ar2[i]<<" ";
     return 0;
 }
 

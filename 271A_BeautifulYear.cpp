@@ -41,7 +41,27 @@ int a[N];
 
 int main() {
     int n,i,j;
-
+    cin>>n;
+    n++;
+    while(1)
+    {
+        int m=n;
+        set<int> x;
+        x.insert(n%10);
+        n=n/10;
+        x.insert(n%10);
+        n=n/10;
+        x.insert(n%10);
+        n=n/10;
+        x.insert(n%10);
+        if(x.size()==4)
+        {
+            cout<<m;
+            return 0;
+        }
+        n=m;
+        n++;
+    }
     return 0;
 }
 
