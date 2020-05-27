@@ -35,43 +35,65 @@ void dfs(int u, int par);
 const int mod = 1000000007;
 const int N = 3e5, M = N;
 //=======================
+bool isComposite(int n) 
+{ 
+   
+    if (n <= 1)  return false; 
+    if (n <= 3)  return false; 
+    
+    if (n%2 == 0 || n%3 == 0) return true; 
+   
+    for (int i=5; i*i<=n; i=i+6) 
+        if (n%i == 0 || n%(i+2) == 0) 
+           return true; 
+   
+    return false; 
+} 
 
-vector<int> dp(4000,-1);
+vi g[N];
+int a[N];
 
-int a,b,c;
-int i;
-int solve(int n)
-{
-
-// For Debugging
-  deb(n);
-  fo(i,10)
-  cout<<i<<" ";
-  cout<<endl;
-  fo(i,10)
-  cout<<dp[i]<<" ";
-  cout<<endl;
-
-
-
-  if(n<=0)
-  return 0;
-  if(dp[n]!=-1) return dp[n];
-  dp[n]=max(1+solve(n-a),1+max(solve(n-b),solve(n-c)));
-  return dp[n];
-}
 int main() {
-  
-    i=0;
-    int n;
-    cin>>n;cin>>a>>b>>c;
-    while(i<a and i<b and i<c)
-    dp[i++]=0;
+    ll int n,i,j;
+    cin>>n;
 
-    
-    
-    cout<<solve(n);
+    fo(i,n)
+    {
+        if(isComposite(n-i) and isComposite(i))
+        {
+            cout<<n-i<<" "<<i;
+            return 0;
+        }
+    }
+
     return 0;
+}
+
+int mpow(int base, int exp) {
+  base %= mod;
+  int result = 1;
+  while (exp > 0) {
+    if (exp & 1) result = ((ll)result * base) % mod;
+    base = ((ll)base * base) % mod;
+    exp >>= 1;
+  }
+  return result;
+}
+
+void ipgraph(int n, int m){
+	int i, u, v;
+	while(m--){
+		cin>>u>>v;
+		g[u-1].pb(v-1);
+		g[v-1].pb(u-1);
+	}
+}
+
+void dfs(int u, int par){
+	for(int v:g[u]){
+		if (v == par) continue;
+		dfs(v, u);
+	}
 }
 
 

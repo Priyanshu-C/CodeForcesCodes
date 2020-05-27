@@ -36,42 +36,47 @@ const int mod = 1000000007;
 const int N = 3e5, M = N;
 //=======================
 
-vector<int> dp(4000,-1);
-
-int a,b,c;
-int i;
-int solve(int n)
-{
-
-// For Debugging
-  deb(n);
-  fo(i,10)
-  cout<<i<<" ";
-  cout<<endl;
-  fo(i,10)
-  cout<<dp[i]<<" ";
-  cout<<endl;
 
 
-
-  if(n<=0)
-  return 0;
-  if(dp[n]!=-1) return dp[n];
-  dp[n]=max(1+solve(n-a),1+max(solve(n-b),solve(n-c)));
-  return dp[n];
-}
 int main() {
-  
-    i=0;
-    int n;
-    cin>>n;cin>>a>>b>>c;
-    while(i<a and i<b and i<c)
-    dp[i++]=0;
+    
+    
+            //SEIVE 
 
-    
-    
-    cout<<solve(n);
+            const int MAX=1000000;
+            vector <bool> SEIVE(MAX + 1, true);
+                SEIVE[0] = SEIVE[1] = false;
+                for (int i = 2; i * i <= MAX; ++i)
+                    if (SEIVE[i])
+                        for (int j = i * i; j <= MAX; j += i)
+                            SEIVE[j] = false;
+
+    map <ll int,bool> Tprimes;
+    for(ll int i=2;i<MAX;i++)
+    {
+        if(SEIVE[i])
+            {
+                Tprimes[i*i] = true;
+            }
+    }
+        ll int n;
+        cin>>n;
+        ll int j;
+        while(n--)
+        {
+            cin>>j;
+            if(Tprimes[j])
+            cout<<"YES"<<endl;
+            else
+            {
+                cout<<"NO"<<endl;
+            }
+            
+        }
+
     return 0;
 }
+
+
 
 

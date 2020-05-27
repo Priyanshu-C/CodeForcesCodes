@@ -36,42 +36,23 @@ const int mod = 1000000007;
 const int N = 3e5, M = N;
 //=======================
 
-vector<int> dp(4000,-1);
-
-int a,b,c;
-int i;
-int solve(int n)
-{
-
-// For Debugging
-  deb(n);
-  fo(i,10)
-  cout<<i<<" ";
-  cout<<endl;
-  fo(i,10)
-  cout<<dp[i]<<" ";
-  cout<<endl;
-
-
-
-  if(n<=0)
-  return 0;
-  if(dp[n]!=-1) return dp[n];
-  dp[n]=max(1+solve(n-a),1+max(solve(n-b),solve(n-c)));
-  return dp[n];
-}
 int main() {
-  
+    ll int n,i,j;
+    cin>>n;
+    vi ar={1,5,10,20,100};
     i=0;
-    int n;
-    cin>>n;cin>>a>>b>>c;
-    while(i<a and i<b and i<c)
-    dp[i++]=0;
-
-    
-    
-    cout<<solve(n);
+    ll int sum=0;
+    for(int i=4;i>=0;i--)
+    while(n/ar[i]!=0)
+    {
+        sum+=n/ar[i];
+        n=n%ar[i];
+    }
+    cout<<sum;
     return 0;
 }
+
+
+
 
 
