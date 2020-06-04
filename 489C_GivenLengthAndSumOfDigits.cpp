@@ -1,3 +1,4 @@
+//https://codeforces.com/problemset/problem/489/C
 #include <bits/stdc++.h>
 using namespace std;
 #define gc getchar_unlocked
@@ -37,40 +38,74 @@ const int mod = 1000000007;
 const int N = 3e5, M = N;
 //=======================
 
-vi g[N];
-int a[N];
-
 int main() {
     int n,i,j;
+    int d,s;
+    cin>>d>>s;
+    vi num(d,0);
+    num[0]=1;
+    if(d==1)
+    {   
+        if(d*9>=s)
+        cout<<s<<" "<<s;
+        else
+        cout<<-1<<" "<<-1;
+        return 0;
+    }
+    s = s - 1;
+   
+    if(s<0 or d*9<s+1)
+    {
+        cout<<-1<<" "<<-1;
+        return 0;
+    }
+    j=d-1;
+    int ss=s;
+    while(s)
+    {
+        if(s>9)
+        {
+        num[j]=num[j]+9;
+        s-=9;
+        }
+        else
+        {
+            num[j]=num[j]+s;
+            s=0;
+        }
+        j--;
+    }
 
+    vi num2(d,0);
+    s=ss;
+    s=s+1;
+    j=0;
+    while(s)
+    {
+        if(s>9)
+        {
+        num2[j]=num2[j]+9;
+        s-=9;
+        }
+        else
+        {
+            num2[j]=num2[j]+s;
+            s=0;
+        }
+        j++;
+    }
+
+    // for(int x:num)
+    // cout<<x<<" ";
+    // cout<<endl;
+
+
+    ll int sn=0;
+    fo(i,d)
+    cout<<num[i];
+    cout<<" ";
+    fo(i,d)
+    cout<<num2[i];
     return 0;
 }
-
-int mpow(int base, int exp) {
-  base %= mod;
-  int result = 1;
-  while (exp > 0) {
-    if (exp & 1) result = ((ll)result * base) % mod;
-    base = ((ll)base * base) % mod;
-    exp >>= 1;
-  }
-  return result;
-}
-
-void ipgraph(int n, int m){
-	int i, u, v;
-	while(m--){
-		cin>>u>>v;
-		g[u-1].pb(v-1);
-		g[v-1].pb(u-1);
-	}
-}
-
-void dfs(int u, int par){
-	for(int v:g[u]){
-		if (v == par) continue;
-		dfs(v, u);
-	}
-}
-
 
