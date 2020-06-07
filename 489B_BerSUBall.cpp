@@ -1,7 +1,7 @@
+//https://codeforces.com/problemset/problem/489/B
 #include <bits/stdc++.h>
 using namespace std;
 #define gc getchar_unlocked
-#define FIN ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 #define fo(i,n) for(i=0;i<n;i++)
 #define fok(i,k,n) for(i=k;i<n;i++)
 #define Fo(i,k,n) for(i=k;k<n?i<n:i>n;k<n?i+=1:i-=1)
@@ -38,41 +38,62 @@ const int mod = 1000000007;
 const int N = 3e5, M = N;
 //=======================
 
-vi g[N];
-int a[N];
-
 int main() {
-    FIN
-    int n,i,j;
+    int n,i,j,sum=0,t;
+    int g,b;
+    cin>>g;
+
+    map <int,int> girls;
+    map <int,int> boys;
+
+    fo(i,g)
+    {
+        cin>>t;
+        girls[t]++;
+    }
+
+    cin>>b;
+    fo(i,b)
+    {
+        cin>>t;
+        boys[t]++;
+    }
+
+    if(g>b)
+    swap(girls,boys);
+
+    tr(it,girls)
+    {
+        int t1 = it->first;
+        int t2 = it->second;
+        while(t2)
+        {
+            if(boys.find(t1-1)!=boys.end())
+            {
+                boys[t1-1]--;
+                sum++;
+                if(boys[t1-1]==0)
+                boys.erase(t1-1);
+            }
+            else if(boys.find(t1)!=boys.end())
+            {
+                boys[t1]--;
+                sum++;
+                if(boys[t1]==0)
+                boys.erase(t1);
+            }
+            else if(boys.find(t1+1)!=boys.end())
+            {
+                boys[t1+1]--;
+                sum++;
+                if(boys[t1+1]==0)
+                boys.erase(t1+1);
+            }
+            t2--;
+        }
+    }
+    cout<<sum;
 
     return 0;
 }
-
-int mpow(int base, int exp) {
-  base %= mod;
-  int result = 1;
-  while (exp > 0) {
-    if (exp & 1) result = ((ll)result * base) % mod;
-    base = ((ll)base * base) % mod;
-    exp >>= 1;
-  }
-  return result;
-}
-
-void ipgraph(int n, int m){
-	int i, u, v;
-	while(m--){
-		cin>>u>>v;
-		g[u-1].pb(v-1);
-		g[v-1].pb(u-1);
-	}
-}
-
-void dfs(int u, int par){
-	for(int v:g[u]){
-		if (v == par) continue;
-		dfs(v, u);
-	}
-}
-
 

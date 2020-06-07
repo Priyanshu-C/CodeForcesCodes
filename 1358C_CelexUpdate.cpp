@@ -1,3 +1,4 @@
+//https://codeforces.com/problemset/problem/1358/C
 #include <bits/stdc++.h>
 using namespace std;
 #define gc getchar_unlocked
@@ -38,41 +39,15 @@ const int mod = 1000000007;
 const int N = 3e5, M = N;
 //=======================
 
-vi g[N];
-int a[N];
-
 int main() {
     FIN
-    int n,i,j;
-
+    ll int n,i,j;
+    cin>>n;
+    while(n--)
+    {
+      ll int x,y,x1,y1;
+        cin>>x>>y>>x1>>y1;
+        cout<< (x1-x)*(y1-y) + 1<<endl;
+    }
     return 0;
 }
-
-int mpow(int base, int exp) {
-  base %= mod;
-  int result = 1;
-  while (exp > 0) {
-    if (exp & 1) result = ((ll)result * base) % mod;
-    base = ((ll)base * base) % mod;
-    exp >>= 1;
-  }
-  return result;
-}
-
-void ipgraph(int n, int m){
-	int i, u, v;
-	while(m--){
-		cin>>u>>v;
-		g[u-1].pb(v-1);
-		g[v-1].pb(u-1);
-	}
-}
-
-void dfs(int u, int par){
-	for(int v:g[u]){
-		if (v == par) continue;
-		dfs(v, u);
-	}
-}
-
-

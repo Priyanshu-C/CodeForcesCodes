@@ -1,7 +1,7 @@
+//https://codeforces.com/problemset/problem/749/A
 #include <bits/stdc++.h>
 using namespace std;
 #define gc getchar_unlocked
-#define FIN ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 #define fo(i,n) for(i=0;i<n;i++)
 #define fok(i,k,n) for(i=k;i<n;i++)
 #define Fo(i,k,n) for(i=k;k<n?i<n:i>n;k<n?i+=1:i-=1)
@@ -38,41 +38,26 @@ const int mod = 1000000007;
 const int N = 3e5, M = N;
 //=======================
 
-vi g[N];
-int a[N];
 
 int main() {
-    FIN
     int n,i,j;
-
+    cin>>n;
+    if(n%2==0)
+    {
+        int x=n/2;
+        cout<<x<<endl;
+        fok(i,0,x)
+        cout<<2<<" ";
+    }
+    else
+    {
+        int x=n/2;
+        cout<<x<<endl;
+        x--;
+        fo(i,x)
+        cout<<2<<" ";
+        cout<<3;
+    }
+    
     return 0;
 }
-
-int mpow(int base, int exp) {
-  base %= mod;
-  int result = 1;
-  while (exp > 0) {
-    if (exp & 1) result = ((ll)result * base) % mod;
-    base = ((ll)base * base) % mod;
-    exp >>= 1;
-  }
-  return result;
-}
-
-void ipgraph(int n, int m){
-	int i, u, v;
-	while(m--){
-		cin>>u>>v;
-		g[u-1].pb(v-1);
-		g[v-1].pb(u-1);
-	}
-}
-
-void dfs(int u, int par){
-	for(int v:g[u]){
-		if (v == par) continue;
-		dfs(v, u);
-	}
-}
-
-
