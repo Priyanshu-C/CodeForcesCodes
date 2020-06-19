@@ -38,21 +38,23 @@ const int mod = 1000000007;
 const int N = 3e5, M = N;
 //=======================
 
-
+vi g[N];
+int a[N];
 
 int main() {
     FIN
-    ll int n,i,j;
-    cin>>n;
-    j=5;i=1;
-    while(j<=n)
-    {
-        i++;
-        j=j*2;
+    int n,i,j;
+    vi ar(4);
+    fo(i,4)
+    cin>>ar[i];
+    cin.ignore();
+    string x;
+    cin>>x;
+    int sum=0;
+    for(char i:x)
+    {  // deb(int(i));
+        sum+=ar[int(i)-48-1];
     }
-    vector<string> ar={"Sheldon","Leonard","Penny","Rajesh ","Howard "};
-    
-
+    cout<<sum;
     return 0;
 }
-
