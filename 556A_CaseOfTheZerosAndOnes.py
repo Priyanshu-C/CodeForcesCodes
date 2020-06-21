@@ -1,0 +1,1 @@
+print (abs(input()-2*input().count('1')))
