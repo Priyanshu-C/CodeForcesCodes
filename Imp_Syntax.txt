@@ -1,0 +1,71 @@
+IMPORTANT NOTES
+	* ios_base::sync_with_stdio(false);
+	* for(auto i:ar)
+	* for(auto &i:ar)
+        cin>>i;
+	* Given a binary string, count the number of substrings that start and end with 1 m(m-1)/2
+	* Set for sorted manner fast to read write and search, only distinct;
+	* Hashmap is random in order used for fast checking.
+	* Map is used to pair things together. We do it to find the count the ocuurance example- Map<string,int> ar;
+	* Fast way to add values to vector 
+
+    Vector<int> ar;ar+=1,2,3,4,5;
+	* Use can use memset to assign all.
+	* swap(q1,q2); swap two queue
+	* Maximum of all subarrays of size k
+
+Using Dynamic Programming 
+	* char* token = strtok(str, "-");  split of c++
+
+token = strtok(NULL, "-");  To make the token go to next place.
+	* multimap<int,int> a;
+
+a.insert({hd,root1->data}); Don’t use pair simply use {};
+	* String st[]=str.trim().split("\\.");
+	* map <int,vector <Node *>> &mp)
+	* Vector <int > ar;
+
+ar={2,4,5,6};LOWER BOUND gives the first occurence of a number in vector lower_bound(vec.begin(),vec.end(),100)Upper Bound gives the number just after the number. O(logN).Also we can subtract the two to get the occurance of a number in a vector;
+	* Binary_search can also be done easily; 
+
+binary_search(vr.begin(),vr.end(),5);
+	* Declare a vector 
+
+Vector <int> num(n,0);
+	* fill(s,s+10,2) will fill every element with the required number;
+	* Accumulate(ar,ar+len,sum) return sum of array.
+	* to_string(integer) to convert anything integer into string 
+	* STRINGS ::: 
+
+ s1.find(s2)==string::npos;s2.empty()s1.pop_back();
+	* priority_queue <int, vector<int>, greater<int> > pq;
+
+/////////MIN_HEAP
+	* priority_queue <int, vector<int>, less<int> > pq;
+
+/////////MAX_HEAP
+	* Use list list<int> to push_front easily and use :P
+	* s.erase(i,1); will remove 1 letter at position i
+	*  Shortest Common Subsequence is m+n-Longest Common Subsequence
+	*  std::bitset<8> b1("XXXXYYYY", 8, 'X', 'Y'); // [0, 0, 0, 0, 1, 1, 1, 1]
+	* std::bitset<8> b(42); will give binary value of 42 in b
+	* Bitset has flip, any , all ,none functions 
+	* We can also replace the 0 with X and 1 with 0 simply by b.to_string('O', 'X') << '\n';  f
+	* Can also be combined with count() to count the number of 1 in the b.
+	* std::rotate(nums.rbegin(),nums.rbegin()+k%nums.size(),nums.rend());
+
+		* lkjrhebgwfc`1P=-[K MNJH8BG7F65TAtd::next_permutation & std::prev_permutation
+	* set_union                (v1.begin (), v1.end (), v2.begin (), v2.end (), back_inserter (v3));
+	* set_intersection         (v1.begin (), v1.end (), v2.begin (), v2.end (), back_inserter (v4));
+	*       set_difference           (v1.begin (), v1.end (), v2.begin (), v2.end (), back_inserter (v5));
+	*       set_symmetric_difference (v1.begin (), v1.end (), v2.begin (), v2.end (), back_inserter (v6));
+	* Calculate the area of the triangle: x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2) and compare it to zero.
+	* vector<vector<int>>dp(length + 1, vector<int>(length + 1,0));
+
+/////////////priority_queue
+	* priority_queue<pair<string,int>,vector<pair<string,int>>,Comp> pq;
+
+struct Comp {        bool operator()(const pair<string,int>& a, const pair<string,int>& b) {            return a.second>b.second || (a.second==b.second && a.first<b.first);        }    };
+	* Assigment of string to a char* // char x[]="ahsdhasdhas";  char *c=x;
+
+    
